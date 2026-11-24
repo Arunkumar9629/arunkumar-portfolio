@@ -1,0 +1,80 @@
+# Task: Create a Professional Personal Portfolio Website
+
+Create a modern, professional, responsive personal portfolio website using only:
+
+- HTML5
+- CSS3
+- JavaScript
+Do not use React, Bootstrap, Tailwind CSS, or any other frameworks.
+
+## 1. Student Profile
+
+First, customize the portfolio based on the following student details:
+
+- Name: Mohamed Ismail I
+- Ex : 0 Years
+- Career Role: [Full Stack Developer]
+- Email: [mohamed@gmail.com]
+- Phone: [234567890]
+- Location: [-------]
+- LinkedIn: [-----------]
+- GitHub: [--------------]
+- Professional Summary: [Write a Short Introduction]
+
+## 2. Website Sections
+
+Create the following sections:
+
+### 1. Navigation Bar
+- Display the student's name or personal logo.
+- Add navigation links: Home, About, Skills, Projects, Education, Contact.
+- Make the navbar sticky.
+- Include a responsive mobile menu.
+
+### 2. Hero Section
+- Display a professional introduction.
+- Show the student's name and career role.
+- Add an attractive professional tagline.
+- Include two buttons: "View My Work" and "Contact Me".
+- Add a professional profile image placeholder.
+
+### 3. About Me
+- Write a professional introduction.
+- Explain career interests and technical knowledge.
+- Highlight career goals and strengths.
+- Keep the content suitable for a fresher with no work experience.
+
+### 4. Skills Section
+- Display technical and professional skills.
+- Use attractive skill cards, icons or progress indicators.
+- Organize skills into suitable categories based on the selected career role.
+
+### 5. Projects Section
+- Display at least three academic or personal projects.
+- Each project should contain:
+  - Project title
+  - Project description
+  - Technologies or tools used
+  - Project image placeholder
+  - GitHub or Live Demo link
+- Use modern project cards.
+
+### 6. Education Section
+- Display degree or course details.
+- Include institution name, graduation year and relevant coursework.
+- Add certifications if available.
+
+### 7. Achievements / Certifications
+- Display relevant certifications, workshops, competitions or academic achievements.
+- Do not create fake achievements.
+
+### 8. Contact Section
+- Add a contact form with Name, Email, Subject and Message.
+- Implement basic JavaScript form validation.
+- Display email and social media links.
+
+### 9. Footer
+- Display the student's name.
+- Add social media links.
+- Add copyright information.
+- Include a Back to Top button.
