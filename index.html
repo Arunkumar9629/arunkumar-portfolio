@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b2a">
+  <meta name="description" content="Arun Kumar K — aspiring Data Scientist in Chennai. Explore my interests, project ideas, and contact details.">
+  <title>Arun Kumar K | Data Scientist</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #edf3fa;
+      --muted: #9cabbc;
+      --surface: #142235;
+      --surface-light: #192a40;
+      --background: #101b2a;
+      --accent: #77e2c2;
+      --accent-dark: #4bc5a2;
+      --line: rgba(209, 224, 240, .12);
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(var(--max-width), calc(100% - 48px)); margin-inline: auto; }
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 16px;
+      z-index: 20;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #0c1a21;
+    }
+    .skip-link:focus { top: 12px; }
+
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(16, 27, 42, .92);
+      backdrop-filter: blur(14px);
+    }
+    .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 750; letter-spacing: -.03em; }
+    .brand-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--accent);
+      color: #0d1b25;
+      font-size: .85rem;
+      letter-spacing: -.04em;
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; margin: 0; padding: 0; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: .91rem; text-decoration: none; transition: color .2s ease; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--accent); }
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .menu-toggle span, .menu-toggle::before, .menu-toggle::after {
+      display: block;
+      width: 18px;
+      height: 2px;
+      margin: 4px auto;
+      border-radius: 2px;
+      background: currentColor;
+      content: "";
+      transition: transform .2s ease;
+    }
+    .menu-toggle[aria-expanded="true"] span { opacity: 0; }
+    .menu-toggle[aria-expanded="true"]::before { transform: translateY(6px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"]::after { transform: translateY(-6px) rotate(-45deg); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 104px 0 96px;
+      background:
+        radial-gradient(ellipse at 85% 20%, rgba(119, 226, 194, .13), transparent 34%),
+        radial-gradient(ellipse at 8% 85%, rgba(80, 124, 180, .13), transparent 38%);
+    }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr); align-items: center; gap: 72px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow::before { width: 22px; height: 1px; background: currentColor; content: ""; }
+    h1 { max-width: 720px; margin: 18px 0 16px; font-size: clamp(2.9rem, 7vw, 5.4rem); line-height: 1.02; letter-spacing: -.065em; }
+    h1 span { color: var(--accent); }
+    .hero-role { margin: 0 0 14px; color: #d3deea; font-size: clamp(1.15rem, 2.5vw, 1.55rem); font-weight: 550; }
+    .hero-copy { max-width: 610px; margin: 0; color: var(--muted); font-size: 1.05rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 11px 18px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      font-size: .92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--accent); color: #0d1b25; }
+    .button-primary:hover { background: #98efd4; }
+    .button-secondary { border-color: var(--line); background: rgba(255,255,255,.025); color: var(--ink); }
+    .button-secondary:hover { border-color: rgba(119, 226, 194, .55); }
+    .hero-visual { position: relative; display: grid; min-height: 320px; place-items: center; }
+    .portrait-frame {
+      position: relative;
+      display: grid;
+      width: min(290px, 75vw);
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid rgba(119, 226, 194, .38);
+      border-radius: 44% 56% 55% 45% / 43% 44% 56% 57%;
+      background: linear-gradient(145deg, #1d3447, #142235 70%);
+      box-shadow: 0 30px 90px rgba(0,0,0,.24), inset 0 0 40px rgba(119, 226, 194, .07);
+      transform: rotate(-4deg);
+    }
+    .portrait-initials { color: var(--accent); font-size: 5.7rem; font-weight: 750; letter-spacing: -.08em; transform: rotate(4deg); }
+    .portrait-note {
+      position: absolute;
+      right: -15px;
+      bottom: 36px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      color: #d5e0eb;
+      font-size: .82rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,.2);
+      transform: rotate(3deg);
+    }
+    .section { padding: 88px 0; }
+    .section-alt { border-block: 1px solid var(--line); background: rgba(255,255,255,.018); }
+    .section-heading { max-width: 650px; margin-bottom: 38px; }
+    .section-heading h2 { margin: 10px 0 10px; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -.045em; }
+    .section-heading p { margin: 0; color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 54px; align-items: start; }
+    .about-copy p { margin: 0 0 17px; color: #b7c4d2; }
+    .about-copy strong { color: var(--ink); }
+    .quick-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; }
+    .fact { min-height: 112px; padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+    .fact-label { display: block; margin-bottom: 7px; color: var(--muted); font-size: .78rem; }
+    .fact-value { font-weight: 650; }
+    .fact-value a { text-decoration-color: rgba(119,226,194,.45); text-underline-offset: 3px; }
+
+    .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .skill-card, .project-card, .education-card, .achievement-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+    .skill-card { padding: 23px; }
+    .card-icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 11px;
+      background: rgba(119, 226, 194, .1);
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: 750;
+    }
+    .skill-card h3, .project-card h3, .education-card h3, .achievement-card h3 { margin: 0 0 8px; font-size: 1.06rem; }
+    .skill-card p, .project-card p, .education-card p, .achievement-card p { margin: 0; color: var(--muted); font-size: .91rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .tag { padding: 4px 9px; border: 1px solid var(--line); border-radius: 999px; color: #c5d2df; font-size: .75rem; }
+    .skill-note { margin: 20px 0 0; color: var(--muted); font-size: .83rem; }
+
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project-card { overflow: hidden; }
+    .project-art {
+      display: grid;
+      min-height: 168px;
+      place-items: center;
+      background:
+        radial-gradient(circle at 70% 30%, rgba(119,226,194,.23), transparent 25%),
+        linear-gradient(135deg, #1b3444, #18263b 65%, #1d2c40);
+    }
+    .project-art span { color: rgba(119,226,194,.9); font-size: 2.8rem; font-weight: 750; letter-spacing: -.07em; }
+    .project-content { padding: 20px; }
+    .project-status { display: inline-block; margin-bottom: 11px; color: var(--accent); font-size: .7rem; font-weight: 750; letter-spacing: .1em; }
+    .project-content p { min-height: 72px; }
+    .project-link { display: inline-flex; margin-top: 16px; color: var(--accent); font-size: .87rem; font-weight: 700; text-decoration: none; }
+    .project-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .project-disclaimer { margin: 20px 0 0; color: var(--muted); font-size: .84rem; }
+
+    .education-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .education-card, .achievement-card { padding: 25px; }
+    .education-card .card-icon, .achievement-card .card-icon { margin-bottom: 17px; }
+    .education-card .detail-label { display: block; margin-top: 16px; color: var(--accent); font-size: .75rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: start; }
+    .contact-copy > p { color: var(--muted); }
+    .contact-list { display: grid; gap: 13px; margin-top: 26px; }
+    .contact-item { display: flex; align-items: center; gap: 12px; color: #d4dfeb; text-decoration: none; overflow-wrap: anywhere; }
+    .contact-item:hover { color: var(--accent); }
+    .contact-icon { display: grid; width: 38px; height: 38px; flex: 0 0 auto; place-items: center; border: 1px solid var(--line); border-radius: 10px; color: var(--accent); }
+    .social-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .social-links a { padding: 7px 11px; border: 1px solid var(--line); border-radius: 8px; color: var(--muted); font-size: .83rem; text-decoration: none; }
+    .social-links a:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+    .form-field { display: grid; gap: 7px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { color: #d8e2ed; font-size: .84rem; font-weight: 600; }
+    .form-field input, .form-field textarea {
+      width: 100%;
+      border: 1px solid rgba(209,224,240,.16);
+      border-radius: 8px;
+      outline: none;
+      background: #101b2a;
+      color: var(--ink);
+      padding: 11px 12px;
+    }
+    .form-field textarea { min-height: 130px; resize: vertical; }
+    .form-field input:focus, .form-field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(119,226,194,.1); }
+    .form-feedback { grid-column: 1 / -1; min-height: 1.5em; margin: 0; color: var(--accent); font-size: .85rem; }
+    .contact-form .button { justify-self: start; cursor: pointer; }
+    .site-footer { padding: 25px 0; border-top: 1px solid var(--line); }
+    .footer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .footer-wrap p { margin: 0; color: var(--muted); font-size: .82rem; }
+    .back-top { color: var(--accent); font-size: .85rem; text-decoration: none; }
+    .back-top:hover { text-decoration: underline; text-underline-offset: 4px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    @media (max-width: 850px) {
+      .hero-grid { gap: 32px; }
+      .skill-grid, .project-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { gap: 32px; }
+      .contact-grid { gap: 34px; }
+    }
+    @media (max-width: 680px) {
+      html { scroll-padding-top: 72px; }
+      .container { width: min(var(--max-width), calc(100% - 36px)); }
+      .nav-wrap { min-height: 68px; }
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 18px 14px;
+        border-bottom: 1px solid var(--line);
+        background: #101b2a;
+      }
+      .nav-links.is-open { display: grid; }
+      .nav-links a { display: block; padding: 11px 6px; }
+      .hero { padding: 68px 0 60px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-copy { font-size: 1rem; }
+      .hero-visual { min-height: 245px; }
+      .portrait-frame { width: 220px; }
+      .portrait-initials { font-size: 4.5rem; }
+      .section { padding: 66px 0; }
+      .about-grid, .education-layout, .contact-grid { grid-template-columns: 1fr; }
+      .skill-grid, .project-grid { grid-template-columns: 1fr; }
+      .project-content p { min-height: unset; }
+      .contact-form { padding: 18px; }
+    }
+    @media (max-width: 440px) {
+      .quick-facts { grid-template-columns: 1fr 1fr; gap: 9px; }
+      .fact { min-height: 100px; padding: 13px; }
+      .fact-value { font-size: .88rem; }
+      .contact-form { grid-template-columns: 1fr; }
+      .form-field.full { grid-column: auto; }
+      .form-feedback { grid-column: auto; }
+      .footer-wrap { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="container nav-wrap" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Arun Kumar K, home">
+        <span class="brand-mark" aria-hidden="true">AK</span>
+        <span>Arun Kumar K</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+      </button>
+      <ul class="nav-links" id="primary-navigation">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Aspiring Data Scientist · Chennai</span>
+          <h1 id="hero-title">Hello, I’m <span>Arun Kumar K.</span></h1>
+          <p class="hero-role">Curious mind. Data-driven perspective.</p>
+          <p class="hero-copy">I’m at the beginning of my data science journey, exploring how statistics, machine learning, and clear communication can turn data into useful decisions.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View My Work <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Profile placeholder">
+          <div class="portrait-frame" role="img" aria-label="Stylized initials AK as a profile image placeholder">
+            <span class="portrait-initials" aria-hidden="true">AK</span>
+          </div>
+          <span class="portrait-note">Profile photo placeholder</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">A little about me</span>
+          <h2 id="about-title">Building a foundation in data science.</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>I’m <strong>Arun Kumar K</strong>, an aspiring Data Scientist based in Chennai. I’m interested in finding meaningful patterns in data and explaining what those patterns can tell us.</p>
+            <p>As a fresher with <strong>0 years of professional experience</strong>, I’m focused on growing my knowledge of data analysis, statistics, Python, and machine learning through consistent learning and hands-on practice.</p>
+            <p>My goal is to develop into a thoughtful, dependable data professional—someone who approaches problems with curiosity, communicates clearly, and keeps learning from feedback.</p>
+          </div>
+          <div class="quick-facts" aria-label="Profile details">
+            <div class="fact"><span class="fact-label">Career focus</span><span class="fact-value">Data Science</span></div>
+            <div class="fact"><span class="fact-label">Experience</span><span class="fact-value">Fresher · 0 years</span></div>
+            <div class="fact"><span class="fact-label">Based in</span><span class="fact-value">Chennai, India</span></div>
+            <div class="fact"><span class="fact-label">Email</span><span class="fact-value"><a href="mailto:arunkumar4151116@gmail.com">Let’s connect</a></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Skills & interests</span>
+          <h2 id="skills-title">The toolkit I’m developing.</h2>
+          <p>A learning-focused snapshot of topics relevant to an early-career data scientist.</p>
+        </div>
+        <div class="skill-grid">
+          <article class="skill-card">
+            <span class="card-icon" aria-hidden="true">Py</span>
+            <h3>Programming & data</h3>
+            <p>Working with code and structured data to explore questions and prepare datasets.</p>
+            <div class="skill-tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">NumPy</span></div>
+          </article>
+          <article class="skill-card">
+            <span class="card-icon" aria-hidden="true">∑</span>
+            <h3>Analysis & statistics</h3>
+            <p>Developing a foundation for understanding data, relationships, and uncertainty.</p>
+            <div class="skill-tags"><span class="tag">Exploratory analysis</span><span class="tag">Descriptive statistics</span><span class="tag">Data cleaning</span></div>
+          </article>
+          <article class="skill-card">
+            <span class="card-icon" aria-hidden="true">↗</span>
+            <h3>Machine learning</h3>
+            <p>Exploring the core ideas behind predictive modelling and responsible evaluation.</p>
+            <div class="skill-tags"><span class="tag">Scikit-learn</span><span class="tag">Model evaluation</span><span class="tag">Feature basics</span></div>
+          </article>
+          <article class="skill-card">
+            <span class="card-icon" aria-hidden="true">▥</span>
+            <h3>Visualisation</h3>
+            <p>Turning findings into clear visual summaries that are easier to understand.</p>
+            <div class="skill-tags"><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Data storytelling</span></div>
+          </article>
+          <article class="skill-card">
+            <span class="card-icon" aria-hidden="true">⌘</span>
+            <h3>Tools & workflow</h3>
+            <p>Learning practical tools for reproducible analysis and collaborative work.</p>
+            <div class="skill-tags"><span class="tag">Jupyter</span><span class="tag">Git</span><span class="tag">GitHub</span></div>
+          </article>
+          <article class="skill-card">
+            <span class="card-icon" aria-hidden="true">◎</span>
+            <h3>Professional strengths</h3>
+            <p>Bringing a steady, thoughtful approach to learning and problem solving.</p>
+            <div class="skill-tags"><span class="tag">Curiosity</span><span class="tag">Communication</span><span class="tag">Attention to detail</span></div>
+          </article>
+        </div>
+        <p class="skill-note">Skills shown represent learning areas and interests; no proficiency ratings are implied.</p>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Selected work</span>
+          <h2 id="projects-title">Ideas to explore with data.</h2>
+          <p>Starter concepts for demonstrating an end-to-end data science process.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-art" role="img" aria-label="Abstract chart illustration"><span aria-hidden="true">01</span></div>
+            <div class="project-content">
+              <span class="project-status">PROJECT CONCEPT</span>
+              <h3>Retail Sales Insights</h3>
+              <p>Explore a public sales dataset to identify seasonal patterns, compare product categories, and present findings in a concise visual report.</p>
+              <div class="skill-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span></div>
+              <a class="project-link" href="https://github.com/Arunkumar9629" target="_blank" rel="noopener noreferrer">Explore my GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art" role="img" aria-label="Abstract machine learning illustration"><span aria-hidden="true">02</span></div>
+            <div class="project-content">
+              <span class="project-status">PROJECT CONCEPT</span>
+              <h3>Customer Churn Exploration</h3>
+              <p>Prepare a customer dataset, investigate factors associated with churn, and compare baseline classification models with careful evaluation.</p>
+              <div class="skill-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Statistics</span></div>
+              <a class="project-link" href="https://github.com/Arunkumar9629" target="_blank" rel="noopener noreferrer">Explore my GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art" role="img" aria-label="Abstract data visualisation illustration"><span aria-hidden="true">03</span></div>
+            <div class="project-content">
+              <span class="project-status">PROJECT CONCEPT</span>
+              <h3>City Data Story</h3>
+              <p>Use an openly available city dataset to build an accessible visual story around a question such as transport, weather, or public services.</p>
+              <div class="skill-tags"><span class="tag">SQL</span><span class="tag">Seaborn</span><span class="tag">Data storytelling</span></div>
+              <a class="project-link" href="https://github.com/Arunkumar9629" target="_blank" rel="noopener noreferrer">Explore my GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <p class="project-disclaimer">These are project concepts, not completed-work claims. Replace them with your own projects and repository links as you build them.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Education & recognition</span>
+          <h2 id="education-title">Learning is ongoing.</h2>
+          <p>Education and certification details were not included in the supplied profile.</p>
+        </div>
+        <div class="education-layout">
+          <article class="education-card">
+            <span class="card-icon" aria-hidden="true">▤</span>
+            <h3>Education details to add</h3>
+            <p>Share your degree or course, institution, and graduation year to complete this section.</p>
+            <span class="detail-label">Relevant coursework</span>
+            <p>Add subjects relevant to data science, such as statistics, programming, databases, or machine learning, if applicable.</p>
+          </article>
+          <article class="achievement-card">
+            <span class="card-icon" aria-hidden="true">✦</span>
+            <h3>Certifications & achievements</h3>
+            <p>No certifications, workshops, competitions, or academic achievements were provided. Add verified items here when available.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <div class="section-heading">
+            <span class="eyebrow">Get in touch</span>
+            <h2 id="contact-title">Let’s start a conversation.</h2>
+            <p>I’m open to connecting with people in data, learning about opportunities, and discussing ideas. Send me a message.</p>
+          </div>
+          <div class="contact-list">
+            <a class="contact-item" href="mailto:arunkumar4151116@gmail.com"><span class="contact-icon" aria-hidden="true">@</span><span>arunkumar4151116@gmail.com</span></a>
+            <a class="contact-item" href="tel:+919629582792"><span class="contact-icon" aria-hidden="true">☎</span><span>+91 96295 82792</span></a>
+            <span class="contact-item"><span class="contact-icon" aria-hidden="true">⌖</span><span>Chennai, India</span></span>
+          </div>
+          <div class="social-links" aria-label="Social profiles">
+            <a href="https://www.linkedin.com/in/arunk1506" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/Arunkumar9629" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" placeholder="Your name">
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com">
+          </div>
+          <div class="form-field full">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" required minlength="2" maxlength="120" placeholder="What would you like to discuss?">
+          </div>
+          <div class="form-field full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required minlength="10" maxlength="2000" placeholder="Write your message here..."></textarea>
+          </div>
+          <button class="button button-primary" type="submit">Prepare Email <span aria-hidden="true">↗</span></button>
+          <p class="form-feedback" id="form-feedback" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="current-year"></span> Arun Kumar K. Made with care.</p>
+      <a class="back-top" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector("#primary-navigation");
+
+    menuToggle.addEventListener("click", () => {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+      menuToggle.setAttribute("aria-label", isExpanded ? "Open navigation menu" : "Close navigation menu");
+      navigation.classList.toggle("is-open", !isExpanded);
+    });
+
+    navigation.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        navigation.classList.remove("is-open");
+      }
+    });
+
+    document.querySelector("#current-year").textContent = new Date().getFullYear();
+
+    document.querySelector("#contact-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const feedback = document.querySelector("#form-feedback");
+
+      if (!form.reportValidity()) {
+        feedback.textContent = "Please check the highlighted fields and try again.";
+        return;
+      }
+
+      const formData = new FormData(form);
+      const subject = String(formData.get("subject")).trim();
+      const body = [
+        `Name: ${String(formData.get("name")).trim()}`,
+        `Email: ${String(formData.get("email")).trim()}`,
+        "",
+        String(formData.get("message")).trim()
+      ].join("\n");
+      feedback.textContent = "Your email app will open with the message details. This form does not send data to a server.";
+      window.location.href = `mailto:arunkumar4151116@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</body>
+</html>
